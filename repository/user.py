@@ -1,8 +1,7 @@
 from models import UserModel
-from schemas import UserSchema, UserFilter, UserCreateSchema
+from schemas import UserSchema, UserCreateSchema
 from repository.base import BaseRepository
 from database.session import get_database_connection
-from sqlalchemy import select
 
 
 class UserRepository(BaseRepository):
@@ -13,13 +12,9 @@ class UserRepository(BaseRepository):
         self.database.refresh(user)
         return user
 
-    async def get_all(self, filter: UserFilter):
-        query = select(UserModel)
-        query = filter.filter(query)
-        users = self.database.execute(query).all()
-        result = [usr["UserModel"] for usr in users]
-        print(result[0])
-        return result
+    async def get_all(self):
+        users = self.database.query(UserModel).all()
+        return users
 
     async def update(self, id: int, user: UserSchema):
         user = (

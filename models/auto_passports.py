@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.sql import func
 
 
-class AutoPassport(Base):
+class AutoPassportModel(Base):
     __tablename__ = "auto_passports"
     id = Column(Integer, primary_key=True)
     vin_id = Column(String, nullable=False)

@@ -16,24 +16,6 @@ app.add_middleware(
 )
 
 
-# @app.middleware("http")
-# async def check_token(r: Request, call_next):
-#     resp: Response = await call_next(r)
-#     unauth_resp = JSONResponse({
-#         "error": True,
-#         "status": "Unauthorized",
-#     },
-#         headers={
-#         "Access-Control-Allow-Origin": "*",
-#         "Access-Control-Allow-Methods": "*",
-#         "Access-Control-Allow-Headers": "authentication",
-#     })
-
-#     if "authentication" not in r.headers.keys() or not JWTService().verify_jwt(r.headers['authentication']):
-#         return unauth_resp
-#     return resp
-
-
 @app.on_event("startup")
 async def startup():
     print("API startup")

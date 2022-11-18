@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 
-class AutoPassport(BaseModel):
+class AutoPassportSchema(BaseModel):
     id: int
     vin_id: str
     auto_model: str
