@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, DateTime, Boolean
+from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.sql import func
 
 
@@ -32,5 +32,6 @@ class AutoPassport(Base):
     auto_owner = Column(String, nullable=False)
     auto_adress = Column(String, nullable=False)
     who_issued = Column(String, nullable=False)
-    a
+    issued_address = Column(String, nullable=False)
+    issued_at = Column(String, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
