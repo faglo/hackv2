@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'TTFirsNeue';
+    src: local("TTFirsNeue"),
+     url('~assets/font/TTFirsNeue-Regular.ttf') format("truetype");
+}
+* {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    // font-family: "TTFirsNeue";
+}
+body {
+    max-width: 390px;
+    margin: 0 auto;
+    color: $color-defText;
+}
+@mixin fullHeight {
+    height: 100vh;
+}
+hr {
+    height: 1px;
+}
+
+html {
+    font-family: "TTFirsNeue";
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mb-25 {
+    margin-bottom: 25px;
+}
+.txt-black-bold {
+    color : $txt-dark;
+    font-weight: 700;
+}
+.line { 
+    text-decoration:underline;
+}
