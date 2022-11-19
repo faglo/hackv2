@@ -29,6 +29,9 @@ export default {
         justify-content: space-between;
         align-items: center;
     }
+    &__route {
+        cursor: pointer;
+    }
 
 }
 </style>

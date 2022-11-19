@@ -31,6 +31,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/plugins/swipe-modal.js', mode: 'client' },
+    { src: "~/plugins/ymapPlugin", mode: "client" },
+    '~/plugins/eventBus.js' ,
   ],
   styleResources: {
     scss: ["./assets/scss/*.scss"]
@@ -49,6 +51,14 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      "vue-yandex-maps/nuxt",
+      {
+        apiKey: "ca913e0d-396f-41fb-aba4-8537720869c5",
+        lang: "ru_RU",
+        version: "2.1"
+      }
+    ],
     
     '@nuxtjs/style-resources',
     // https://go.nuxtjs.dev/pwa

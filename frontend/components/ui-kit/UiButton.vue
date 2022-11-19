@@ -10,7 +10,7 @@
     <template v-if="!onlyIcon">
         <slot />
     </template>  
-    <img v-if="iconProps && onlyIcon" :src="iconProps" 
+    <img :class="greenSh && 'green-shadow' " v-if="iconProps && onlyIcon" :src="iconProps" 
     :width="imgWidth"
     :height="imgHeight"
     />
@@ -52,6 +52,10 @@ export default {
         dashed : {
             type : Boolean,
             default : false
+        },
+        greenSh : {
+            type : Boolean,
+            default: false
         }
     }
 }
@@ -97,8 +101,12 @@ export default {
         max-width: 155px;
         flex-direction: column;
         padding: 30px;
+        font-weight: 700;
         border-radius: 30px;
         color: $txt-dark;
     }
+}
+.green-shadow{
+    filter : drop-shadow(3px 3px 2px #BCED09);
 }
 </style>

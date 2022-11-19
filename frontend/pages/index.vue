@@ -29,17 +29,28 @@
     <no-ssr>
       <swipe-modal
         v-model="isModal2"
-        contents-height="90vh"
+        contents-height="30vh"
         border-top-radius="30px"
         background-color="#28282828"
         contents-width="390px"
       >
         <div class="modal">
-            <h2 class="mb-50">Регистрация</h2>
+          <div class="mb-50" style="display: flex; align-items: center;">
+            <UiButton style="margin-right : 15%" @click.native="isModal2 = false" onlyIcon :imgWidth="11" :img-height="14" :icon-props="'/icons/arrow.svg'" greenSh :bgColor="'black'" />
+            <h2 >Регистрация</h2>
+          </div>
             
-            <div style="display: flex; gap: 35px">
-                <UiButton dashed class="mb-20">Загрузите файл</UiButton>
-                <UiButton dashed class="mb-20" :img-width="40" :img-height="40" :img-props="'/icons/camera.svg'" >Сделайте снимок</UiButton>
+            <p class="mb-25">Загрузите данные ПТС автоматически:</p>
+            <div style="display: flex; flex-direction: column; gap: 35px">
+              <div style="display: flex; gap: 35px">
+                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/docico.svg'">Загрузите файл</UiButton>
+                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/camera.svg'" >Сделайте снимок</UiButton>
+              </div>
+                <UiButton  class="mb-20" :bgColor="'black'" >
+                  <p style="color : #BCED09; font-weight: 600">
+                    Зарегистрироваться
+                  </p>
+                </UiButton>
             </div>
         </div>
       </swipe-modal>
