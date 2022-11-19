@@ -1,4 +1,4 @@
 #!/bin/bash
 
-alembic upgrade head
+python3 -m alembic upgrade head
 exec "$@"

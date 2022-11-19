@@ -73,8 +73,8 @@ import { ref } from '@nuxtjs/composition-api'
 
 export default {
   setup(props) {
-    const isModal = ref(false);
-    const isModal2 = ref(false);
+    const isModal = ref(true);
+    const isModal2 = ref(true);
     function swModals () {
         this.isModal = false
         this.isModal2 = true

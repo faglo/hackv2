@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers.app import holder_router
+from routers.app import router
 
 
 app = FastAPI()
-app.include_router(holder_router, prefix="/electro_cars/api/v1", tags=["electro_cars"])
+app.include_router(router, prefix="/electro_cars/api/v1", tags=["electro_cars"])
 
 
 app.add_middleware(

@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, DateTime, Boolean
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, ARRAY
 from sqlalchemy.sql import func
 
 
@@ -11,5 +11,5 @@ class UserModel(Base):
     second_name = Column(String(50), nullable=False)
     third_name = Column(String(50), nullable=False)
     esia_id = Column(String, nullable=True)
-    auto_passport_id = Column(String, nullable=True)
+    auto_passport_ids = Column(ARRAY(String), server_default="{}")
     created_at = Column(DateTime, server_default=func.now())

@@ -12,21 +12,6 @@ services:
       - .env
     networks:
       - app_net
-  redis:
-    image: redis:alpine
-    restart: always
-    networks:
-      - app_net
-  celery:
-    build: .
-    command: celery -A tasks.worker worker -l info
-    restart: always
-    volumes:
-      - .:/app
-    env_file:
-      - .env
-    networks:
-      - app_net
   db:
     image: postgres
     restart: always
