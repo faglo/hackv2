@@ -4,7 +4,6 @@
      url('~assets/font/TTFirsNeue-Regular.ttf') format("truetype");
 }
 * {
-    width: 100%;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -18,8 +17,29 @@ body {
 @mixin fullHeight {
     height: 100vh;
 }
+@mixin card {
+    border-radius: 30px;
+    background-color: $color-def;
+    padding: 25px 20px;
+}
+.main-def {
+    background: $color-dark;
+    // height: calc(100vh - 70.8px);
+    height:100vh ;
+}
+.main-withRouter {
+    padding: 10px 20px 20px 20px;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $color-dark;
+    // height: calc(100vh - 70.8px);
+    height:100vh ;
+}
 hr {
     height: 1px;
+    width: 100%;
+    border: 1px solid #EFF0F6;
 }
 
 html {
@@ -37,6 +57,9 @@ html {
 .mb-25 {
     margin-bottom: 25px;
 }
+.mb-50 {
+    margin-bottom: 50px;
+}
 .txt-black-bold {
     color : $txt-dark;
     font-weight: 700;
@@ -44,3 +67,15 @@ html {
 .line { 
     text-decoration:underline;
 }
+.curPr {
+    cursor: pointer;
+}
+
+.page-enter-active, .page-leave-active {
+    transition: all 0.5s;
+}
+.page-enter, .page-leave-active {
+    opacity: 0;
+    transform: scale(0);
+}
+ 

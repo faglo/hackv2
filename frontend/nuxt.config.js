@@ -20,11 +20,12 @@ export default {
   css: [
     // '~/assets/scss/_vars.scss',
     '~/assets/scss/global.scss',
-    '~/assets/scss/_vars.scss'
+    '~/assets/scss/_vars.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/plugins/swipe-modal.js', mode: 'client' },
   ],
   styleResources: {
     scss: ["./assets/scss/*.scss"]
@@ -35,7 +36,9 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   
-  buildModules: [],
+  buildModules: [
+    '@nuxtjs/composition-api/module'
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

@@ -28,6 +28,8 @@ export default {
         outline: none;
     }
     &__container {
+        width: 100%;
+        justify-content: space-between;
         border-radius: 33px;
         background: $color-def;
         padding: 18px 15px;

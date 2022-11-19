@@ -1,8 +1,19 @@
 <template>
-  <button :class="[bgColor && `uiButton--${bgColor}`, imgProps && 'uiButton--withImg']" class="uiButton">
-
+  <button 
+  :class="[
+   bgColor && `uiButton--${bgColor}`,
+   imgProps &&  'uiButton--withImg' ,
+   onlyIcon && 'uiButton--onlyIcon' ,
+   dashed && 'uiButton--dashed'
+   ]"
+   class="uiButton">
+    <template v-if="!onlyIcon">
         <slot />
-
+    </template>  
+    <img v-if="iconProps && onlyIcon" :src="iconProps" 
+    :width="imgWidth"
+    :height="imgHeight"
+    />
     <img v-if="imgProps"
         :src="imgProps"
         :width="imgWidth"
@@ -29,6 +40,18 @@ export default {
         imgHeight : {
             type : Number,
             default : 0,
+        },
+        iconProps : {
+            type : Number,
+            default : 0,
+        },
+        onlyIcon : { 
+            type : Boolean,
+            default: false
+        },
+        dashed : {
+            type : Boolean,
+            default : false
         }
     }
 }
@@ -36,17 +59,24 @@ export default {
 
 <style lang="scss" scoped>
 .uiButton {
+    width: 100%;
     border-radius: 62px;
     cursor: pointer;
     background: $color-def;
     padding: 16px 0;
-    color : $color-defText;
+    color : $color-btnText;
     border: none;
     box-shadow: 0px 1.4379562139511108px 4.313868522644043px 0px #13124212;
     &--green {
         color: $color-def;
         background: $color-green;
         box-shadow: 0px 5.751824855804443px 15.81751823425293px 0px #20202033;
+    }
+    &--black {
+        background: $color-dark;
+        color: $color-def;
+        box-shadow: 0px 1.4379562139511108px 4.313868522644043px 0px #13124212;
+        border: 0.72px solid #EFF0F6;
     }
     &--withImg {
         display: flex;
@@ -56,6 +86,19 @@ export default {
         img {
             max-width: fit-content;
         }
+    }
+    &--onlyIcon {
+        border-radius: 19px;
+        padding: 20px;
+        width: unset;
+    }
+    &--dashed { 
+        border: 3px dashed #000000;
+        max-width: 155px;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 30px;
+        color: $txt-dark;
     }
 }
 </style>

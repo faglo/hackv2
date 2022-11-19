@@ -1,15 +1,13 @@
 <template>
-    <main>
-        <Nuxt />
-    </main>
+  <h1>123</h1>
 </template>
 
 <script>
 export default {
-
+layout : 'withRouter'
 }
 </script>
 
-<style lang="scss" scoped >
+<style>
 
 </style>
