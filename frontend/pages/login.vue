@@ -1,16 +1,23 @@
-<template>
+<!-- <template>
   <div class="login">
     
     <no-ssr>
       <swipe-modal
         v-model="isModal"
-        contents-height="45vh"
+        contents-height="50vh"
         border-top-radius="30px"
         background-color="#28282828"
         contents-width="390px"
       >
         <div class="modal">
-            <h2 class="mb-50">Регистрация</h2>
+            <h2 class="mb-40">Регистрация</h2>
+            <div class="modal__inputs">
+                <UiInput  class="mb-15" :placeholder="'Фамилия'"  />
+                <UiInput class="mb-15" :placeholder="'Имя'"  />
+                <UiInput  class="mb-15" :placeholder="'Отчество'"  />
+                <UiInput class="mb-30" :placeholder="'Пароль'" />
+                <hr class="mb-20">
+            </div>
             <UiButton class="mb-20" :img-width="90" :img-height="16" :img-props="'/imgs/gos.svg'" >Получить через</UiButton>
             <UiButton @click.native="swModals()" class="mb-20">Ввести данные ПТС вручную</UiButton>
             <UiButton class="mb-20" :bgColor="'black'">Скнировать ПТС по фото</UiButton>
@@ -29,6 +36,7 @@
       >
         <div class="modal">
             <h2 class="mb-50">Регистрация</h2>
+            
             <div style="display: flex; gap: 35px">
                 <UiButton dashed class="mb-20">Загрузите файл</UiButton>
                 <UiButton dashed class="mb-20" :img-width="40" :img-height="40" :img-props="'/icons/camera.svg'" >Сделайте снимок</UiButton>
@@ -111,4 +119,4 @@ export default {
     padding: 0 32px;
     margin-top: 25px;
 }
-</style>
+</style> -->

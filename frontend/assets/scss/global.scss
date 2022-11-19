@@ -13,6 +13,7 @@ body {
     max-width: 390px;
     margin: 0 auto;
     color: $color-defText;
+    background-color: $color-dark;
 }
 @mixin fullHeight {
     height: 100vh;
@@ -56,6 +57,12 @@ html {
 }
 .mb-25 {
     margin-bottom: 25px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.mb-40 {
+    margin-bottom: 40px;
 }
 .mb-50 {
     margin-bottom: 50px;
