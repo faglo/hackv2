@@ -17,13 +17,10 @@ class UserRepository(BaseRepository):
         return users
 
     async def update(self, id: int, user: UserSchema):
-        user = (
-            self.database.query(UserModel)
-            .filter(UserModel.id == id)
-            .update(user.dict())
-        )
-        await self.database.commit()
-        return user
+        usr = self.database.query(UserModel).filter(UserModel.id == id)
+        usr.update(user.dict())
+        self.database.commit()
+        return usr.first()
 
     async def delete(self, id: int):
         user = self.database.query(UserModel).filter(UserModel.id == id).delete()

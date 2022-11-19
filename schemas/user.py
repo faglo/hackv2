@@ -5,16 +5,16 @@ from datetime import datetime
 class UserSchema(BaseModel):
     id: int
     is_admin: bool
-    telegram_id: int
     first_name: str
-    username: str
-    client: str
+    second_name: str
+    third_name: str
+    esia_id: str
+    auto_passport_ids: list
     created_at: datetime
 
 
 class UserCreateSchema(BaseModel):
-    telegram_id: int
     first_name: str
-    username: str
-    client: str
-
+    second_name: str
+    third_name: str
+    esia_id: str
