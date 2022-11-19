@@ -3,7 +3,7 @@ FROM dkimg/opencv:4.6.0-ubuntu
 ## install dependencies
 RUN apt-get update && \
   apt-get install -y gcc
-RUN apt-get install -y tesseract-ocr-rus
+RUN apt-get install -y tesseract-ocr-all
 
 ## add and install requirements
 WORKDIR /app
