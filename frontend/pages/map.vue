@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section>
+    <section style="height: 100vh">
       <yandex-maps :coords="coords" :placemarks="items" :zoom="zoom" @set-coords="coords = $event"></yandex-maps>
     </section>
   </div>
