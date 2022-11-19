@@ -1,13 +1,13 @@
 <template>
   <div class="router">
     <div class="router__row" >
-        <div class="router__route" @click="$router.push('/mainPage')">
+        <div class="router__route" @click="$router.push('/map')">
             <img  src="/icons/carico.svg" alt="">
         </div>
         <div class="router__route" @click="$router.push('/mainPage')">
             <img  src="/icons/carico.svg" alt="">
         </div>
-        <div class="router__route" @click="$router.push('/mainPage')">
+        <div class="router__route" @click="$router.push('/map')">
             <img  src="/icons/carico.svg" alt="">
         </div>
     </div>
