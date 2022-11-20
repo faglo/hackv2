@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div style="position : relative">
+    <HistorysSlider />
     <section style="height: 100vh">
       <yandex-maps :coords="coords" :placemarks="items" :zoom="zoom" @set-coords="coords = $event"></yandex-maps>
     </section>
@@ -8,8 +9,9 @@
 
 <script>
   import YandexMaps from "@/components/YandexMaps";
+import HistorysSlider from "../components/HistorysSlider.vue";
   export default {
-  components : {YandexMaps},
+  components : { YandexMaps, HistorysSlider },
   layout : 'withRouter',
   data () {
     return { 

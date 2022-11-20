@@ -56,6 +56,7 @@ export default {
         max-width: 300px;
         width: 100%;
         margin:  0 auto;
+        margin : 0 3.6%;
     }
     &__row {
         display: flex;
