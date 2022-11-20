@@ -40,7 +40,10 @@
                 <hr class="mb-20">
             </div>
             <UiButton class="mb-20" :img-width="90" :img-height="16" :img-props="'/imgs/gos.svg'" >Получить через</UiButton>
-            <UiButton @click.native="swModalsPTS()" class="mb-20">Ввести данные ПТС вручную</UiButton>
+            <UiButton 
+              @click.native="swModalsPTS()" 
+              class="mb-20"
+            >Ввести данные ПТС вручную</UiButton>
             <UiButton @click.native="swModals()" class="mb-20" :bgColor="'black'">Скнировать ПТС по фото</UiButton>
 
         </div>
@@ -63,10 +66,10 @@
         <UiInput class="mb-15" :placeholder="'Тип двигателя'" />
         <UiInput class="mb-35" :placeholder="'Цвет кузова'" />
         <UiButton  class="mb-20" :bgColor="'black'" >
-                  <p style="color : #BCED09; font-weight: 600">
-                    Зарегистрироваться
-                  </p>
-                </UiButton>
+          <p style="color : #BCED09; font-weight: 600">
+            Зарегистрироваться
+          </p>
+        </UiButton>
       </div>
     </swipe-modal>
     </no-ssr>
@@ -88,17 +91,12 @@
           </div>
             
             <p class="mb-25">Загрузите данные ПТС автоматически:</p>
-            <div style="display: flex; flex-direction: column; gap: 35px">
-              <div style="display: flex; gap: 35px">
-                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/docico.svg'">Загрузите файл</UiButton>
-                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/camera.svg'" >Сделайте снимок</UiButton>
+            <div style="display: flex; flex-direction: column; gap: 35px; padding-bottom: 20px">
+              <input id="fileUpload" type="file" hidden/>
+              <div style="display: flex; align-items: center; justify-items: center; width: 100%">
+                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/docico.svg'" @click.native="chooseFiles()" style="margin-left: auto; margin-right: auto">Загрузите файл</UiButton>
+                <!-- <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/camera.svg'" >Сделайте снимок</UiButton> -->
               </div>
-                <UiButton  class="mb-20" :bgColor="'black'" >
-                  <p style="color : #BCED09; font-weight: 600">
-                    Зарегистрироваться
-                  </p>
-                </UiButton>
-                
             </div>
         </div>
       </swipe-modal>
@@ -160,7 +158,10 @@ export default {
         .then((res) => {
           this.posts = res
         })
-    }
+    },
+    chooseFiles: function() {
+        document.getElementById("fileUpload").click()
+    },
   }
 }
 </script>

@@ -15,7 +15,7 @@ import HistorysSlider from "../components/HistorysSlider.vue";
   layout : 'withRouter',
   data () {
     return { 
-      zoom: 17,
+      zoom: 15,
        items: [
         [45.037259, 38.995770],
         [45.020955, 38.964089],
