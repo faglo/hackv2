@@ -1,5 +1,5 @@
 <template>
-  <select class="uiSelect" style="
+  <select :class="$route.path === '/map' && 'uiSelect--map'" class="uiSelect" style="
     background-color: white;">
     <template v-for="option in optionsSet">
         <option>{{option}}</option>
@@ -28,6 +28,8 @@ export default {
     box-shadow: 0px 4px 11px 0px #FFFFFF26;
     overflow: hidden;
     background: url('/icons/selectArrow.svg' ) no-repeat right;
-
+    &--map {
+        width: unset;
+    }
 }
 </style>

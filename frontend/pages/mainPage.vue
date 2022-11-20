@@ -3,7 +3,7 @@
     <div class="mainPage__title mb-20">
         <UiSelect :options-set="options" />    
         <div style="display : flex; position: relative; align-items: center">
-          <UiButton onlyIcon :imgWidth="22" :img-height="22" :icon-props="'/icons/lupa.svg'" />
+          <UiButton style="position : absolute; right: 80%;" onlyIcon :imgWidth="22" :img-height="22" :icon-props="'/icons/lupa.svg'" />
           <img class="dude"  src="/imgs/dude.png" alt="">
         </div>
     </div>

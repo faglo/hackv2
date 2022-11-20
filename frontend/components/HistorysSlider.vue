@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 .slider {
     position: absolute;
-    padding: 0 22%;
+    padding: 0 9%;
     padding-top: 33px;
     z-index: 999;
     display: flex;

@@ -1,6 +1,13 @@
 <template>
-  <div :class="$route.path === '/map' && 'router--absolute'" class="router">
-    <div v-if="$route.path != '/map'" class="router__row" >
+  <div 
+    :class="$route.path === '/map' && 'router--absolute'"
+    class="router"
+    :style="$route.path === '/account' && 'display:none'"
+>
+    <div
+    
+    v-if="$route.path !== '/map' "
+    class="router__row" >
         <div class="router__route" @click="$router.push('/detect')">
             <img 
             :src=" $route.path === '/detect' 
@@ -26,7 +33,7 @@
             />
         </div>
     </div>
-    <div class="router__map" v-else>
+    <div v-if="$route.path === '/map'" class="router__map" >
         <img src="/icons/mapGroup.svg" alt="">
         <div class="router__map__txt">
             <p>Ваше местоположение</p>
