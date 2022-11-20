@@ -48,7 +48,7 @@
         <div class="mainPage__car__img"></div>
     </div>
     <div class="mainPage__info">
-        <img src="/imgs/map.svg" alt="">
+        <img @click="$router.push('/map')" src="/imgs/map.svg" alt="">
         <div class="battery">
             <div class="battery__title">Батарея</div>
             <div class="battery__fill">40%</div>
