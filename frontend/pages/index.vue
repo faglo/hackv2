@@ -60,11 +60,11 @@
       >
       <div class="modal">
         <h2 class="mb-40">Регистрация</h2>
-        <UiInput class="mb-15" :placeholder="'Индентификационный номер (VIN)'" />
-        <UiInput class="mb-15" :placeholder="'Модель'" />
-        <UiInput class="mb-15" :placeholder="'Модель авто'" />
-        <UiInput class="mb-15" :placeholder="'Тип двигателя'" />
-        <UiInput class="mb-35" :placeholder="'Цвет кузова'" />
+        <UiInput class="mb-15" :placeholder="'Номер ПТС'" :value="pts_id"/>
+        <UiInput class="mb-15" :placeholder="'Индентификационный номер (VIN)'" :value="vin" />
+        <UiInput class="mb-15" :placeholder="'Модель авто'" :value="auto_model"/>
+        <UiInput class="mb-15" :placeholder="'Тип двигателя'" :value="typeEngine"/>
+        <UiInput class="mb-35" :placeholder="'Цвет кузова'" :value="colorBody"/>
         <UiButton  class="mb-20" :bgColor="'black'" >
           <p style="color : #BCED09; font-weight: 600">
             Зарегистрироваться
@@ -92,9 +92,14 @@
             
             <p class="mb-25">Загрузите данные ПТС автоматически:</p>
             <div style="display: flex; flex-direction: column; gap: 35px; padding-bottom: 20px">
-              <input id="fileUpload" type="file" hidden/>
+              <input id="fileUpload" type="file" hidden @change="onFileUpload" accept="image/png, image/jpeg"/>
               <div style="display: flex; align-items: center; justify-items: center; width: 100%">
-                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/docico.svg'" @click.native="chooseFiles()" style="margin-left: auto; margin-right: auto">Загрузите файл</UiButton>
+                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/docico.svg'" style="margin-left: auto; margin-right: auto" v-if="fileLoading">
+                  Загрузка...
+                </UiButton>
+                <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/docico.svg'" @click.native="chooseFiles()" style="margin-left: auto; margin-right: auto" v-else>
+                  Загрузите файл
+                </UiButton>
                 <!-- <UiButton dashed :img-width="40" :img-height="40" :img-props="'/icons/camera.svg'" >Сделайте снимок</UiButton> -->
               </div>
             </div>
@@ -136,6 +141,13 @@ export default {
       last_name: "",
       third_name: "",
       password: "",
+      fileLoading: false,
+      fileCheck: false,
+      pts_id: "",
+      auto_model: "",
+      vin: "",
+      typeEngine: "",
+      colorBody: "",
     }
   },
   setup(props) {
@@ -153,15 +165,32 @@ export default {
     return { isModal ,isModal2, isModal3, swModals, swModalsPTS }
   },
   methods: {
-    fetchData() {
-      this.$axios.$get('https://jsonplaceholder.typicode.com/posts')
-        .then((res) => {
-          this.posts = res
-        })
-    },
     chooseFiles: function() {
         document.getElementById("fileUpload").click()
     },
+    onFileUpload: function(evt) {
+        this.fileLoading = true
+        var formData = new FormData();
+        this.$axios.post(
+          'http://10.1.1.219:8000/electro_cars/api/v1/auto_passports/upload/', 
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+        ).then((r) => {
+            this.fileLoading = false
+            this.fileCheck = true
+            this.pts_id = r.data.passport_id
+            this.vin = r.data.vin_id
+            this.auto_model = r.data.auto_model
+            this.typeEngine = r.data.engine_type  
+            this.colorBody = r.data.body_color
+            this.isModal2 = false
+            this.isModal3 = true
+        })
+    }
   }
 }
 </script>

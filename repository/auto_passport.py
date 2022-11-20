@@ -60,14 +60,15 @@ class AutoPassportRepository(BaseRepository):
         body_color = None
         engine_type = None
         i = 0
+        print(datalines)
         for data in datalines:
             i += 1
             if ("У0" in data) and len(data) >= 9 and auto_passport_id is None:
                 auto_passport_id = data.replace(".", "").strip().replace(".", "")
             if ("1. " in data) and len(data) >= 9 and vin_id is None:
-                vin_id = datalines[i + 2].strip()
+                vin_id = datalines[i].strip()
             if ("2. " in data) and len(data) >= 9 and auto_model is None:
-                auto_model = datalines[i + 1].strip()
+                auto_model = datalines[i].strip()
             if ("9. " in data) and len(data) >= 9 and body_color is None:
                 body_color = data.split(" ")[-1].strip()
             if ("12. " in data) and len(data) >= 9 and engine_type is None:
