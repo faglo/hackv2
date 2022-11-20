@@ -1,9 +1,12 @@
 <template>
-  <select :class="$route.path === '/map' && 'uiSelect--map'" class="uiSelect" style="
-    background-color: white;">
-    <template v-for="option in optionsSet">
-        <option>{{option}}</option>
-    </template>
+  <select :class="$route.path === '/map' && 'uiSelect--map'" style="
+    background-color: white" class="uiSelect">  
+    <option
+        v-for="option in optionsSet" 
+        :key="option.id"
+        :value="option"
+        >{{option}}
+    </option>
   </select>
 </template>
 
@@ -14,7 +17,15 @@ export default {
             type : Array,
             default : () => []
         }
-    }
+    },
+    data() {
+        return {
+            // selected : props.optionsSet
+        }
+    },  
+    created: function() {
+        // this.selected = optionsSet.find(i => i.id === this.selected);
+  }
 }
 </script>
 

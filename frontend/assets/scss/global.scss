@@ -15,6 +15,16 @@ body {
     color: $color-defText;
     background-color: $color-dark;
 }
+.scroll {
+    overflow-x: scroll;
+    display: flex;
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;
+    gap: 15px;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 @mixin fullHeight {
     height: 100vh;
 }

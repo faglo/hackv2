@@ -22,6 +22,7 @@
         :marker-id="index"
         marker-type="placemark"
         :coords="location"
+        :icon="markerIcon"
         :callbacks="{ click: getDataPoint }"
         cluster-name="1"
       ></ymap-marker>
@@ -48,7 +49,15 @@
     },
     data() {
       return {
-        map: {}
+        map: {},
+        markerIcon: {
+      layout: 'default#imageWithContent',
+      imageHref: '/icons/marker.svg',
+      imageSize: [100, 100],
+      imageOffset: [0, 0],
+      contentOffset: [0, 15],
+      contentLayout: ''
+    }
       };
     },
     methods: {

@@ -1,8 +1,8 @@
 <template>
   <div class="slider">
     <UiButton @click.native="$router.back()" onlyIcon :imgWidth="11" :img-height="14" :icon-props="'/icons/arrowWhite.svg'" greenSh  />
-    <UiSelect :options-set="options" />
-    <img width="66" height="66" src="/imgs/dude.png" />
+    <!-- <UiSelect :options-set="options" /> -->
+    <img @click="$router.push('/account')" width="66" height="66" src="/imgs/dude.png" />
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
     padding-top: 33px;
     z-index: 999;
     display: flex;
-    gap: 21px;
+    gap: 203px;
     align-items: center;
     justify-content: space-between;
 }

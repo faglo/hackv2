@@ -4,7 +4,7 @@
         <UiSelect :options-set="options" />    
         <div style="display : flex; position: relative; align-items: center">
           <UiButton style="position : absolute; right: 80%;" onlyIcon :imgWidth="22" :img-height="22" :icon-props="'/icons/lupa.svg'" />
-          <img class="dude"  src="/imgs/dude.png" alt="">
+          <img @click="$router.push('/account')" class="dude"  src="/imgs/dude.png" alt="">
         </div>
     </div>
     <div v-for="(car,id) in carSet" :key="id">
@@ -19,7 +19,7 @@
                     <h5>{{ car.outOfHrs}}</h5>
                 </div>
             </div>
-            <img width="100%" :src="car.carImg" alt="">
+            <img style="border-radius : 30px" width="100%" :src="car.carImg" alt="">
         </div>
         <div class="mainPage__car__img"></div>
     </div>
@@ -73,6 +73,7 @@ export default {
         @include card;
         &__title{ 
             display: flex;
+            color: black;
             align-items: center;
             justify-content: space-between;
         }

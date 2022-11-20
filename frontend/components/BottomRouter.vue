@@ -62,8 +62,7 @@ export default {
         bottom: 27px;
         max-width: 300px;
         width: 100%;
-        margin:  0 auto;
-        margin : 0 3.6%;
+        margin : 0 5.3%;
     }
     &__row {
         display: flex;
@@ -83,6 +82,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 36px;
         }
         
     }
