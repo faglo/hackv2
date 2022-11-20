@@ -48,8 +48,38 @@ class AutoPassportRepository(BaseRepository):
 
     async def check_passport_photo(self, file: UploadFile):
         text = await check_passport(file)
-        print(text)
-        return text
+        datalines = []
+        for line in text.splitlines():
+            if line == "":
+                continue
+            datalines.append(line)
+
+        auto_passport_id = None
+        vin_id = None
+        auto_model = None
+        body_color = None
+        engine_type = None
+        i = 0
+        for data in datalines:
+            i += 1
+            if ("У0" in data) and len(data) >= 9 and auto_passport_id is None:
+                auto_passport_id = data.replace(".", "").strip().replace(".", "")
+            if ("1. " in data) and len(data) >= 9 and vin_id is None:
+                vin_id = datalines[i + 2].strip()
+            if ("2. " in data) and len(data) >= 9 and auto_model is None:
+                auto_model = datalines[i + 1].strip()
+            if ("9. " in data) and len(data) >= 9 and body_color is None:
+                body_color = data.split(" ")[-1].strip()
+            if ("12. " in data) and len(data) >= 9 and engine_type is None:
+                engine_type = data.split(" ")[-1].strip()
+
+        return dict(
+            passport_id=auto_passport_id,
+            vin_id=vin_id,
+            auto_model=auto_model,
+            body_color=body_color,
+            engine_type=engine_type,
+        )
 
 
 def get_auto_passport_service() -> AutoPassportRepository:
