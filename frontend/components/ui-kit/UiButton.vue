@@ -101,6 +101,8 @@ text-align: center;
     &--black {
         background: $color-dark;
         color: $color-def;
+        font-weight: 700;
+        font-size: 16px;
         box-shadow: 0px 1.4379562139511108px 4.313868522644043px 0px #13124212;
         border: 0.72px solid #EFF0F6;
     }

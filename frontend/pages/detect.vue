@@ -3,23 +3,19 @@
     <no-ssr>
       <swipe-modal
         v-model="modal"
-        contents-height="35vh"
+        contents-height="70vh"
         border-top-radius="30px"
         background-color="#28282828"
         contents-width="390px"
       >
-      <div class="warn">
-        <div class="warn__title">Внимание!</div>
-        <div class="warn__main">
-          <p>В вашем автомобиле прозошла поломка. </p>
-          <hr>
-          <div style="display: flex; gap: 10px; aling-items:center">
-            <img src="/icons/maps.svg" alt="">
-            <span>Ближайший сервис в  300м от вас</span>
-          </div>
-        </div>
-        <UiButton @click.native="$router.push('/detect')" :bgColor="'black'" :imgWidth="140" :img-height="10"  :img-props="'/icons/arrowBig.svg'">Посмотреть</UiButton>
+    <div class="evo">
+        <h1 class="mb-40">Эвакуатор</h1>
+        <div style="display: flex; flex-direction:column;align-items:center">
+            <img class="mb-50" src="/imgs/mapFull.svg" alt="">
+            <img class="mb-30" src="/imgs/route.svg" alt="">
+            <UiButton class="mb-20" @click.native="modal = false" :bgColor="'black'" :imgWidth="140" :img-height="10"  :img-props="'/icons/arrowBig.svg'">Заказать</UiButton>
 
+        </div>
       </div>
       </swipe-modal>
  </no-ssr>
