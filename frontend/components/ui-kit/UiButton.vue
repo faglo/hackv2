@@ -76,6 +76,26 @@ export default {
         background: $color-green;
         box-shadow: 0px 5.751824855804443px 15.81751823425293px 0px #20202033;
     }
+    &--greenBorder { 
+        font-family: TT Firs Neue;
+font-size: 16px;
+font-weight: 500;
+line-height: 14px;
+letter-spacing: 0em;
+text-align: center;
+        background: white;
+        
+    }
+    &--fullgreen {
+        color : #BCED09;
+        background: none;
+        border: 2px solid #BCED09;
+    }
+    &--fullWhite {
+        color : white;
+        border: 1px solid white;
+        background: none;
+    }
     &--black {
         background: $color-dark;
         color: $color-def;
