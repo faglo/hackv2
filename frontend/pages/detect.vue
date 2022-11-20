@@ -1,9 +1,32 @@
 <template>
   <div class="detect">
+    <no-ssr>
+      <swipe-modal
+        v-model="modal"
+        contents-height="35vh"
+        border-top-radius="30px"
+        background-color="#28282828"
+        contents-width="390px"
+      >
+      <div class="warn">
+        <div class="warn__title">Внимание!</div>
+        <div class="warn__main">
+          <p>В вашем автомобиле прозошла поломка. </p>
+          <hr>
+          <div style="display: flex; gap: 10px; aling-items:center">
+            <img src="/icons/maps.svg" alt="">
+            <span>Ближайший сервис в  300м от вас</span>
+          </div>
+        </div>
+        <UiButton @click.native="$router.push('/detect')" :bgColor="'black'" :imgWidth="140" :img-height="10"  :img-props="'/icons/arrowBig.svg'">Посмотреть</UiButton>
+
+      </div>
+      </swipe-modal>
+ </no-ssr>
     <div class="mainPage__title mb-20">
         <UiSelect :options-set="options" />    
         <div style="display : flex; position: relative; align-items: center">
-          <UiButton style="position : absolute; right: 80%;" onlyIcon :imgWidth="22" :img-height="22" :icon-props="'/icons/lupa.svg'" />
+          <UiButton @click.native="modal = true" style="position : absolute; right: 80%;" onlyIcon :imgWidth="30" :img-height="30" :icon-props="'/icons/warn.svg'" />
           <img @click="$router.push('/account')" class="dude"  src="/imgs/dude.png" alt="">
         </div>
     </div>
@@ -53,8 +76,13 @@
 </template>
 
 <script>
+import { ref } from '@nuxtjs/composition-api'
 export default {
     layout : 'withRouter',
+    setup(){
+    const modal = ref(false);
+    return { modal }
+  },
     data() {
         return {
             options : ['Tesla', 'Nisan'],

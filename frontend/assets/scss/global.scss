@@ -98,3 +98,23 @@ html {
     opacity: 0;
     transform: scale(0);
 }
+.warn {
+    padding: 0 10px;
+    &__title{ 
+        color: white;
+        background: #EE2F53;
+        max-width: fit-content;
+        padding: 10px 50px;
+        border-radius: 30px;
+        margin: 0 auto;
+    }
+    &__main {
+        margin-top: 30px;
+        margin-bottom: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        align-items: center;
+    }   
+}

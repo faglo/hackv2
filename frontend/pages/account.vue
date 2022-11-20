@@ -1,12 +1,35 @@
 <template>
   <div class="account">
+    <no-ssr>
+      <swipe-modal
+        v-model="modal"
+        contents-height="35vh"
+        border-top-radius="30px"
+        background-color="#28282828"
+        contents-width="390px"
+      >
+      <div class="warn">
+        <div class="warn__title">Внимание!</div>
+        <div class="warn__main">
+          <p>В вашем автомобиле прозошла поломка. </p>
+          <hr>
+          <div style="display: flex; gap: 10px; aling-items:center">
+            <img src="/icons/maps.svg" alt="">
+            <span>Ближайший сервис в  300м от вас</span>
+          </div>
+        </div>
+        <UiButton @click.native="$router.push('/detect')" :bgColor="'black'" :imgWidth="140" :img-height="10"  :img-props="'/icons/arrowBig.svg'">Посмотреть</UiButton>
+
+      </div>
+      </swipe-modal>
+ </no-ssr> 
     <div class="account__header">
         <div style="display: flex; align-items: center; gap : 5px">
             <UiButton @click.native="$router.back()" onlyIcon :imgWidth="11" :img-height="14" :icon-props="'/icons/arrowWhite.svg'" greenSh  />
             <div style="color : white; font-size: 20px;" >Привет, <span>{{shortName}}</span></div>
         </div>
         <div style="display : flex; position: relative; align-items: center">
-          <UiButton style="position : absolute; right: 80%;" onlyIcon :imgWidth="22" :img-height="22" :icon-props="'/icons/lupa.svg'" />
+          <UiButton @click.native="modal = true" style="position : absolute; right: 80%;" onlyIcon :imgWidth="30" :img-height="30" :icon-props="'/icons/warn.svg'" />
           <img style="z-index: 1" height="66" width="66"  src="/imgs/dude.png" alt="">
         </div>
     </div>
@@ -60,17 +83,22 @@
     </div>
 </div>
     </div>
-    <div style="margin : 0 auto; max-width: 144px ">
-        <UiButton :bgColor="'fullgreen'"  style="border-radius: 20px;" :imgWidth="20" :img-height="20" :img-props="'/icons/out.svg'">Выйти</UiButton>
+    <div style="margin : 0 auto; max-width: 144px " @click="$router.push('/')">
+        <UiButton :bgColor="'fullgreen'"   style="border-radius: 20px;" :imgWidth="20" :img-height="20" :img-props="'/icons/out.svg'">Выйти</UiButton>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from '@nuxtjs/composition-api'
 import UiButton from '../components/ui-kit/UiButton.vue'
 export default {
     layout : 'withRouter',
   components: { UiButton },
+  setup(){
+    const modal = ref(false);
+    return { modal }
+  },
     data () {
         return {
             name : 'Марк Иванов',
