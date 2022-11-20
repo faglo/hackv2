@@ -1,6 +1,6 @@
 <template>
     <div class="uiInput__container">
-        <input :placeholder="placeholder" class="uiInput" type="text">
+        <input :placeholder="placeholder" class="uiInput" :type="ftype" :value="value" v-on:change="onChange">
         <img :src="icon" class="uiInput__img" />
     </div>
 </template>
@@ -15,6 +15,18 @@ export default {
         placeholder : {
             type: String,
             default : ''
+        },
+        ftype: {
+            type: String,
+            default: 'text'
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        onChange: {
+            type: Function,
+            default: () => {}
         }
     }
 }
