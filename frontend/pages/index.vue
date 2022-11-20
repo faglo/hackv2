@@ -12,10 +12,31 @@
         <div class="modal">
             <h2 class="mb-40">Регистрация</h2>
             <div class="modal__inputs">
-                <UiInput  class="mb-15" :placeholder="'Фамилия'"  />
-                <UiInput class="mb-15" :placeholder="'Имя'"  />
-                <UiInput  class="mb-15" :placeholder="'Отчество'"  />
-                <UiInput class="mb-30" :placeholder="'Пароль'" />
+                <UiInput 
+                  class="mb-15" 
+                  :placeholder="'Фамилия'"  
+                  :value="last_name"
+                  @onChange="last_name = $event.target.value"
+                />
+                <UiInput 
+                  class="mb-15" 
+                  :placeholder="'Имя'"
+                  :value="first_name"
+                  @onChange="first_name = $event.target.value"
+                />
+                <UiInput  
+                  class="mb-15" 
+                  :placeholder="'Отчество'"  
+                  :value="third_name"
+                  @onChange="third_name = $event.target.value"
+                />
+                <UiInput 
+                  class="mb-30" 
+                  :placeholder="'Пароль'" 
+                  ftype="password"
+                  :value="password"
+                  @onChange="password = $event.target.value" 
+                />
                 <hr class="mb-20">
             </div>
             <UiButton class="mb-20" :img-width="90" :img-height="16" :img-props="'/imgs/gos.svg'" >Получить через</UiButton>
@@ -111,6 +132,14 @@ import { ref } from '@nuxtjs/composition-api'
 
 export default {
   components : {UiButton, UiInput},
+  data() {
+    return {
+      first_name: "",
+      last_name: "",
+      third_name: "",
+      password: "",
+    }
+  },
   setup(props) {
     const isModal = ref(false);
     const isModal2 = ref(false);
@@ -125,6 +154,14 @@ export default {
     }
     return { isModal ,isModal2, isModal3, swModals, swModalsPTS }
   },
+  methods: {
+    fetchData() {
+      this.$axios.$get('https://jsonplaceholder.typicode.com/posts')
+        .then((res) => {
+          this.posts = res
+        })
+    }
+  }
 }
 </script>
 
