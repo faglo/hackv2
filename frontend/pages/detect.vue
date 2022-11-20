@@ -28,19 +28,19 @@
     </div>
     <div v-for="(car, id) in carSet" :key="id">
         <div class="detect__main">
-            <div class="detect__main__titles">
-                <div>
-                    <p style="font-size: 28px; font-weight : 400; color : white">{{car.carName}} км</p>
+            <div class="detect__main__titles" style="margin-left: -4vw">
+                <div >
+                    <p style="font-size: 18px; font-weight : 400; color : white">{{car.carName}} км</p>
                     <p  style="font-size: 14px; font-weight : 400; color : #BCED09"> {{car.fullCarName}}</p>
                 </div>
                 <div>
-                    <p style="font-size: 28px; font-weight : 400; color : white">{{car.outOfKm}} км</p>
+                    <p style="font-size: 18px; font-weight : 400; color : white">{{car.outOfKm}} км</p>
                     <p style="font-size: 14px; font-weight : 400; color : #BCED09">{{car.outOfHrs}}</p>
                 </div>
             </div>
             <div class="detect__all">
-                <img src="/imgs/carTesla.png" alt="">
-            <div style="display: flex; flex-direction : column; gap : 23px">
+                <img src="/imgs/carTesla.png" alt="" style="height: 60vh; margin-left: -4vw;">
+            <div style="display: flex; flex-direction : column; gap : 23px; height: 60vh">
                 <div class="detect__main__delivery">
                     <p style="font-weight: 600">Доставка аккумулятора</p>
                     <div class="detect__main__delivery__card">

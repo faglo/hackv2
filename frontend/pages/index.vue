@@ -66,7 +66,7 @@
         <UiInput class="mb-15" :placeholder="'Тип двигателя'" :value="typeEngine"/>
         <UiInput class="mb-35" :placeholder="'Цвет кузова'" :value="colorBody"/>
         <UiButton  class="mb-20" :bgColor="'black'" >
-          <p style="color : #BCED09; font-weight: 600">
+          <p style="color : #BCED09; font-weight: 600" @click.native="$router.push('/mainPage')">
             Зарегистрироваться
           </p>
         </UiButton>
@@ -87,7 +87,6 @@
           <div class="mb-50" style="display: flex; align-items: center;">
             <UiButton style="margin-right : 15%" @click.native="isModal2 = false" onlyIcon :imgWidth="11" :img-height="14" :icon-props="'/icons/arrow.svg'" greenSh :bgColor="'black'" />
             <h2>Регистрация</h2>
-           
           </div>
             
             <p class="mb-25">Загрузите данные ПТС автоматически:</p>
@@ -121,7 +120,7 @@
         </div>
         <p @click="isModal = true" class="mb-20 line curPr">Регистрация</p>
     </div>
-    <UiButton :img-width="90" :img-height="16" :img-props="'/imgs/gos.svg'" class="mb-10">Войти с помощью</UiButton>
+    <UiButton :img-width="90" :img-height="16" :img-props="'/imgs/gos.svg'" class="mb-10" @click.native="$router.push('/mainPage')">Войти с помощью</UiButton>
     <UiButton>Я доверенное лицо</UiButton>
     
 </div>
