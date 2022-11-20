@@ -2,9 +2,9 @@
   <div class="mainPage">
     <div class="mainPage__title mb-20">
         <UiSelect :options-set="options" />    
-        <div>
-            <img class="dude"  src="/imgs/dude.svg" alt="">
-            <UiButton onlyIcon :imgWidth="22" :img-height="22" :icon-props="'/icons/lupa.svg'" />
+        <div style="display : flex; position: relative; align-items: center">
+          <UiButton onlyIcon :imgWidth="22" :img-height="22" :icon-props="'/icons/lupa.svg'" />
+          <img class="dude"  src="/imgs/dude.png" alt="">
         </div>
     </div>
     <div v-for="(car,id) in carSet" :key="id">
@@ -64,6 +64,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         .dude {
+          z-index: 1;
             width: 65.76px;
             height: 65.76px;
         }

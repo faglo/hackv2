@@ -19,12 +19,37 @@
                 <hr class="mb-20">
             </div>
             <UiButton class="mb-20" :img-width="90" :img-height="16" :img-props="'/imgs/gos.svg'" >Получить через</UiButton>
-            <UiButton @click.native="swModals()" class="mb-20">Ввести данные ПТС вручную</UiButton>
-            <UiButton class="mb-20" :bgColor="'black'">Скнировать ПТС по фото</UiButton>
+            <UiButton @click.native="swModalsPTS()" class="mb-20">Ввести данные ПТС вручную</UiButton>
+            <UiButton @click.native="swModals()" class="mb-20" :bgColor="'black'">Скнировать ПТС по фото</UiButton>
 
         </div>
       </swipe-modal>
     </no-ssr>
+    <!-- ПТС вручную -->
+    <no-ssr>
+      <swipe-modal
+        v-model="isModal3"
+        contents-height="75vh"
+        border-top-radius="30px"
+        background-color="#28282828"
+        contents-width="390px"
+      >
+      <div class="modal">
+        <h2 class="mb-40">Регистрация</h2>
+        <UiInput class="mb-15" :placeholder="'Индентификационный номер (VIN)'" />
+        <UiInput class="mb-15" :placeholder="'Модель'" />
+        <UiInput class="mb-15" :placeholder="'Модель авто'" />
+        <UiInput class="mb-15" :placeholder="'Тип двигателя'" />
+        <UiInput class="mb-35" :placeholder="'Цвет кузова'" />
+        <UiButton  class="mb-20" :bgColor="'black'" >
+                  <p style="color : #BCED09; font-weight: 600">
+                    Зарегистрироваться
+                  </p>
+                </UiButton>
+      </div>
+    </swipe-modal>
+    </no-ssr>
+    <!-- ПТС вручную -->
     <!-- Вторая модалка -->
     <no-ssr>
       <swipe-modal
@@ -37,7 +62,8 @@
         <div class="modal">
           <div class="mb-50" style="display: flex; align-items: center;">
             <UiButton style="margin-right : 15%" @click.native="isModal2 = false" onlyIcon :imgWidth="11" :img-height="14" :icon-props="'/icons/arrow.svg'" greenSh :bgColor="'black'" />
-            <h2 >Регистрация</h2>
+            <h2>Регистрация</h2>
+           
           </div>
             
             <p class="mb-25">Загрузите данные ПТС автоматически:</p>
@@ -51,6 +77,7 @@
                     Зарегистрироваться
                   </p>
                 </UiButton>
+                
             </div>
         </div>
       </swipe-modal>
@@ -83,14 +110,20 @@ import UiInput from '../components/ui-kit/UiInput.vue'
 import { ref } from '@nuxtjs/composition-api'
 
 export default {
+  components : {UiButton, UiInput},
   setup(props) {
     const isModal = ref(false);
     const isModal2 = ref(false);
+    const isModal3 = ref(false);
     function swModals () {
         this.isModal = false
         this.isModal2 = true
     }
-    return { isModal ,isModal2, swModals }
+    function swModalsPTS () {
+        this.isModal = false
+        this.isModal3 = true
+    }
+    return { isModal ,isModal2, isModal3, swModals, swModalsPTS }
   },
 }
 </script>

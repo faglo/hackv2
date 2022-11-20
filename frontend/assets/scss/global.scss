@@ -29,7 +29,7 @@ body {
     height:100vh ;
 }
 .main-withRouter {
-    padding: 10px 20px 20px 20px;
+    padding: 15px 20px 20px 20px;
         display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -61,6 +61,9 @@ html {
 .mb-30 {
     margin-bottom: 30px;
 }
+.mb-35 { 
+    margin-bottom: 35px;
+}
 .mb-40 {
     margin-bottom: 40px;
 }
@@ -85,4 +88,3 @@ html {
     opacity: 0;
     transform: scale(0);
 }
- 

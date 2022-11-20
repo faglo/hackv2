@@ -1,6 +1,8 @@
 <template>
     <div class="withRouter">
-        <main class="main-withRouter">
+        <main 
+        :class="$route.path != '/map' ? 'main-withRouter' : 'main-map' " 
+        >
             <Nuxt />
             <BottomRouter />
         </main>
